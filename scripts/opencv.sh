@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# TODO programmtically verify correct 64bit os installed
+
+uname -a
+gcc -v
+
 # if needed, to update the firmware
 sudo rpi-eeprom-update -a
 sudo reboot
