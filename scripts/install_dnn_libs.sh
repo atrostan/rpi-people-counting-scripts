@@ -10,9 +10,9 @@
 uname -a
 gcc -v
 
-# if needed, to update the firmware
-sudo rpi-eeprom-update -a
-sudo reboot
+# # if needed, to update the firmware
+# sudo rpi-eeprom-update -a
+# sudo reboot
 
 # check for updates (64-bit OS is still under development!)
 sudo apt-get update
@@ -151,6 +151,11 @@ sudo rm -rf ncnn
 # ################################################################################################
 # Section 2: Download Models, Install inference drivers 
 # ################################################################################################
+
+RPI_SCRIPTS_REPO="$HOME/rpi-people-counting-scripts"
+FRCNN_MAKEFILE_PATH="$RPI_SCRIPTS_REPO/scripts/frcnn/Makefile"
+SSD_MAKEFILE_PATH="$RPI_SCRIPTS_REPO/scripts/ssd/Makefile"
+
 cd ~
 mkdir inference 
 cd inference
@@ -170,6 +175,7 @@ python -c "import gdown; url = 'https://drive.google.com/uc?id=1w3F4PL03SVtvoS_u
 
 # TODO copy makefile from current github repo to this dir
 # HERE
+mv FRCNN_MAKEFILE_PATH ./
 make
 
 # run inference on sample image
@@ -186,6 +192,7 @@ wget https://raw.githubusercontent.com/Tencent/ncnn/master/examples/mobilenetssd
 
 # TODO copy makefile from current github repo to this dir
 # HERE
+mv SSD_MAKEFILE_PATH ./
 make
 
 # run inference on sample image

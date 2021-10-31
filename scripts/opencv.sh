@@ -6,8 +6,8 @@ uname -a
 gcc -v
 
 # if needed, to update the firmware
-sudo rpi-eeprom-update -a
-sudo reboot
+# sudo rpi-eeprom-update -a
+# sudo reboot
 
 echo "Installing OpenCV 4.5.3 on your Raspberry Pi 64-bit OS"
 echo "It will take minimal 1.5 hour !"
